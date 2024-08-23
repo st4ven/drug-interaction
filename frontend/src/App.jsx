@@ -28,6 +28,7 @@ function App() {
 
   const clearList = () => {
     setDrugList([]);
+    setResult([]);
   }
 
   const loadExample = () => {
