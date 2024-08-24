@@ -1,6 +1,6 @@
 # 💊 Drug Interaction Checker
 
-![Website screenshot](https://i.gyazo.com/2602a2fd4d808614c67df3b48c45c751.png)
+![Website screenshot](https://i.gyazo.com/9618dabf779877a29310bfa02ff78e3d.png)
 
 ## [Live Webpage](https://drug-interaction.vercel.app/)
 > Note: The backend is currently not being hosted.
