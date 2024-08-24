@@ -1,7 +1,7 @@
 const InputForm = ({drug, setDrug}) => {
     return (
         <>
-        <h1>Drug Interactions</h1>
+        <h1>Drug Interaction Checker</h1>
 
         <div className="together">
             <label htmlFor="drug">Check for potential risks of drug co-administrations:</label>
