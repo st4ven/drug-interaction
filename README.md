@@ -7,7 +7,7 @@
 This project is designed to help users find interactions between certain drugs. The user can input up to six different drugs to test for any potential risks of drug co-administrations. After filling out the necessary information and clicking "Check Interactions", the website will display a table of the drugs with potential negative interactions and a severity level of the interaction.
 
 ## Technologies Used
-* **Frontend:** ReactJS for building the user interface (with Vite for development)
+* **Frontend:** React for building the user interface (with Vite for development)
 * **Backend:** Node.js with Express for handling API requests and responses.
 * **Database:** PostgreSQL for storing and querying data.
 * **APIs:** Communication between the frontend and backend through HTTP requests.
