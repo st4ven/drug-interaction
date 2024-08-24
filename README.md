@@ -13,7 +13,7 @@ This project is designed to help users find interactions between certain drugs. 
 * **APIs:** Communication between the frontend and backend through HTTP requests.
 
 ## Features
-* The frontend allows users to input and delete drug names, check for interactions, and displays the results in a user-friendly format.
+* The frontend allows users to input and delete drug names, check for interactions, and display the results in a user-friendly format.
 * The backend handles the logic for querying data interactions, processing requests from the frontend, and returning the relevant data.
 * The database stores data related to drug interactions, which the backend queries to provide results to the frontend.
 
