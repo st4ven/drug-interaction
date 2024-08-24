@@ -1,4 +1,4 @@
-# Drug Interaction Checker 💊
+# Drug Interaction Checker
 
 ![Website screenshot](https://i.gyazo.com/d1b8267535de7c4cfb213dbcdfb2a52a.png)
 
