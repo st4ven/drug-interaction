@@ -8,6 +8,21 @@ button {
     cursor: pointer;
 }
 
+@media (max-width: 1120px) {
+    .box {
+        min-width: 320px;
+    }
+
+    button {
+        min-width: 90px;
+    }
+}
+
+@media (max-width: 1130px) {
+    label {
+        text-align: center;
+    }
+    }
 .page {
     display: flex;
     align-items: center;

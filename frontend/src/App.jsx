@@ -5,36 +5,38 @@ import InputForm from './components/InputForm';
 import DrugList from './components/DrugList';
 
 function App() {
+  // variable consts
   const [result, setResult] = useState([]);
   const [drugList, setDrugList] = useState([]);
   const [drug, setDrug] = useState("");
 
+  /// This function adds a drug to the drug list
   const handleAddDrug = () => {
     if (drug != "" && drugList.length < 5) {
       setDrugList([...drugList, drug]);
       setDrug("");
-    } else if (drug == "") {
-      alert("Please enter a drug name!");
-    } else if (drugList.length >= 5) {
-      alert("Too many drugs added!");
     }
   }
 
+  /// This function deletes a drug from the drug list
   const handleDeleteDrug = (i) => {
     const deleteDrugs = [...drugList];
     deleteDrugs.splice(i, 1);
     setDrugList(deleteDrugs);
   }
 
+  /// This function clears the list and results table
   const clearList = () => {
     setDrugList([]);
     setResult([]);
   }
 
+  /// This function loads an example list into the drug list
   const loadExample = () => {
     setDrugList(["Omeprazole", "Fosphenytoin", "Fludrocortisone", "Citalopram", "Vandetanib", "Clotrimazole"]);
   }
 
+  /// This function handles getting the drug interactions from the API
   const handleInteractions = async (e) => {
     e.preventDefault();
     const result = await getDrugInteractions(drugList);
@@ -59,7 +61,7 @@ function App() {
                   <th>#</th>
                   <th>Drug 1</th>
                   <th>Drug 2</th>
-                  <th>Severity Level</th>
+                  <th>Level</th>
                   </tr>
               </thead>
 
