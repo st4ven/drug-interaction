@@ -4,10 +4,16 @@ const app = express();
 const {checkInteractions} = require('./queries');
 const cors = require('cors');
 const corsOptions = {
-  origin: ["http://localhost:5173"]
+  origin: "https://drug-interaction.vercel.app", credentials: true
 }
 
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://drug-interaction.vercel.app');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/check-interaction', async (req, res) => {
   const {drug1, drug2, drug3, drug4, drug5, drug6} = req.query;
