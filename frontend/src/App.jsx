@@ -67,7 +67,7 @@ function App() {
 
               <tbody>
                 {result.map((interaction, index) => (
-                    <tr key={index}>
+                    <tr key={index} className={interaction.severity === 'Major' ? 'major' : interaction.severity === 'Moderate' ? 'moderate' : interaction.severity === 'Minor' ? 'minor' : interaction.severity === 'Unknown' ? 'unknown' : ''}>
                       <td><strong>{index + 1}</strong></td>
                       <td>{interaction.drug1}</td>
                       <td>{interaction.drug2}</td>

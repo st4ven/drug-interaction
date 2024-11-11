@@ -150,3 +150,19 @@ td, th {
     width: 75%;
     margin-bottom: 20px;
 }
+
+.major {
+    background-color: #f6d0d5;
+}
+
+.moderate {
+    background-color: #fff0ca;
+}
+
+.minor {
+    background-color: #cbe4d8;
+}
+
+.unknown {
+    background-color: #f7f8f9;
+}
