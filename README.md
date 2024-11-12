@@ -1,7 +1,6 @@
 # Drug Interaction Checker
 
-## [Live Webpage](https://drug-interaction.vercel.app/)
-> Note: The backend is currently not being hosted.
+## [Live Webpage](https://drug-interaction-57ee.onrender.com/)
 
 ## Description
 This project is designed to help users find interactions between certain drugs. The user can input up to six different drugs to test for any potential risks of drug co-administrations. After filling out the necessary information and clicking "Check Interactions", the website will display a table of the drugs with potential negative interactions and a severity level of the interaction.
