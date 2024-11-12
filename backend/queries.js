@@ -1,4 +1,4 @@
-const { supabase } = require('./supabase.js');
+import supabase from "./supabase.js";
 
 /// This function gets the interaction between two drugs from the database
 /// @param drug1: first drug
@@ -35,7 +35,7 @@ async function getInteraction(drug1, drug2) {
 /// This function checks the interactions of all drugs in the drug list
 /// @param drugList: list of drugs
 /// @return List of interactions between drugs
-async function checkInteractions(drugList) {
+export async function checkInteractions(drugList) {
   // list of interactions
   const interactions = [];
 
@@ -59,5 +59,3 @@ async function checkInteractions(drugList) {
   // return the interactions list
   return interactions;
 }
-
-module.exports = { checkInteractions }

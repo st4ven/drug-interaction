@@ -4,8 +4,10 @@
   "main": "app.js",
   "scripts": {
     "test": "nodemon backend/app",
-    "start": "node backend/app"
+    "start": "node backend/app",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
