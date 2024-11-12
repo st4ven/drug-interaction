@@ -1,27 +1,36 @@
-const {pool} = require("./pool");
+const { supabase } = require('./supabase.js');
 
 /// This function gets the interaction between two drugs from the database
 /// @param drug1: first drug
 /// @param drug2: second drug
 /// @return Interaction between the two drugs
 async function getInteraction(drug1, drug2) {
-    // command to query the database
-    const query = `
-      SELECT "severity"
-      FROM "interactions"
-      WHERE ("drug_1" = $1 AND "drug_2" = $2)
-      OR ("drug_1" = $2 AND "drug_2" = $1)
-    `;
+  // command to query the database
 
-    // get the drug names
-    const values = [drug1, drug2];
+  const { data: data1, error: error1 } = await supabase
+  .from('interactions')
+  .select('severity')
+  .eq('drug_1', drug1)
+  .eq('drug_2', drug2);
 
-    // query the database to find the interaction
-    const result = await pool.query(query, values);
+  const { data: data2, error: error2 } = await supabase
+    .from('interactions')
+    .select('severity')
+    .eq('drug_1', drug2)
+    .eq('drug_2', drug1);
 
-    // if found, return the interaction, if not, return no interaction found
-    return result.rows[0] ? result.rows[0].severity : "No interaction found";
+  if (error1 || error2) {
+    console.error('Error fetching interaction:', error1 || error2);
+    return 'Error fetching interaction';
+  }
+
+  const combinedData = [...data1, ...data2];
+
+  // return severity if interaction was found;
+  return combinedData && combinedData.length > 0 ? combinedData[0].severity : 'No interaction found';
 }
+
+
 
 /// This function checks the interactions of all drugs in the drug list
 /// @param drugList: list of drugs
@@ -50,6 +59,5 @@ async function checkInteractions(drugList) {
   // return the interactions list
   return interactions;
 }
-module.exports = {
-  checkInteractions
-};
+
+module.exports = { checkInteractions }

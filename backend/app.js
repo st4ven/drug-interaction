@@ -1,7 +1,9 @@
-// app.js
 const express = require('express');
 const app = express();
 const {checkInteractions} = require('./queries');
+const dotenv = require('dotenv');
+
+dotenv.config();
 const cors = require('cors');
 const corsOptions = {
   origin: ["http://localhost:5173"]
@@ -21,7 +23,7 @@ app.get('/check-interaction', async (req, res) => {
 
 
 // Start the server
-const port = 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

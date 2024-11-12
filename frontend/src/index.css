@@ -166,3 +166,7 @@ td, th {
 .unknown {
     background-color: #f7f8f9;
 }
+
+.part {
+    font-weight: 350;
+}

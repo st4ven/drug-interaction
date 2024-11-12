@@ -9,10 +9,11 @@ function App() {
   const [result, setResult] = useState([]);
   const [drugList, setDrugList] = useState([]);
   const [drug, setDrug] = useState("");
+  const [loading, setLoading] = useState(false);
 
   /// This function adds a drug to the drug list
   const handleAddDrug = () => {
-    if (drug != "" && drugList.length < 5) {
+    if (drug != "" && drugList.length < 6) {
       setDrugList([...drugList, drug]);
       setDrug("");
     }
@@ -38,11 +39,18 @@ function App() {
 
   /// This function handles getting the drug interactions from the API
   const handleInteractions = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const result = await getDrugInteractions(drugList);
+    setLoading(false);
     setResult(result);
   }
 
+  const severityOrder = { Major: 1, Moderate: 2, Minor: 3, Unknown: 4 };
+
+  const sortedResult = [...result].sort((a, b) => {
+    return severityOrder[a.severity] - severityOrder[b.severity];
+  });
   return (
     <div className="page">
         <div className="box">
@@ -51,7 +59,9 @@ function App() {
           <DrugList handleDeleteDrug={handleDeleteDrug} drugList={drugList}></DrugList>
         </div>
 
-        <button className="different" onClick={handleInteractions}>Check Interactions</button>
+        <button className="different" onClick={handleInteractions}>
+          {loading ? 'Loading...' : 'Check Interactions'}
+        </button>
 
         <div className="table">
           {result.length > 0 && (
@@ -66,12 +76,12 @@ function App() {
               </thead>
 
               <tbody>
-                {result.map((interaction, index) => (
+                {sortedResult.map((interaction, index) => (
                     <tr key={index} className={interaction.severity === 'Major' ? 'major' : interaction.severity === 'Moderate' ? 'moderate' : interaction.severity === 'Minor' ? 'minor' : interaction.severity === 'Unknown' ? 'unknown' : ''}>
                       <td><strong>{index + 1}</strong></td>
-                      <td>{interaction.drug1}</td>
-                      <td>{interaction.drug2}</td>
-                      <td>{interaction.severity}</td>
+                      <td className="part">{interaction.drug1}</td>
+                      <td className="part">{interaction.drug2}</td>
+                      <td className="part">{interaction.severity}</td>
                     </tr>
                 ))}
               </tbody>
