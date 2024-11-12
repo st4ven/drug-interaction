@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/check-interaction';
+const API_URL = 'https://drug-interaction-57ee.onrender.com/check-interaction';
 
 // function to get drug interactions from list
 export const getDrugInteractions = async (drugList) => {
